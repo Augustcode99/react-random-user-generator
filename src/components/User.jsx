@@ -16,17 +16,17 @@ const User = () => {
     getUser();
   }, []);
 
-  console.log(user?.name?.last);
+  console.log(user);
 
   return (
-    <div>
+    <div className="card">
       <h1>
         {user?.name?.title} {user?.name?.first} {user?.name?.last}
       </h1>
       <img src={user?.picture?.large} alt="" />
       <h4>{user?.email}</h4>
       <h5>Phone No: {user?.phone}</h5>
-      <p>Date of Birth: {user?.dob?.date}</p>
+      <p>Date of Birth: {new Date(user?.dob?.date).toLocaleDateString()}</p>
       <button onClick={getUser}>Get another user</button>
     </div>
   );
